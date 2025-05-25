@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.control.Label?>
+<?import javafx.geometry.Pos?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.example.trafficlightproject.traffic.controller.LightController"
+      spacing="10"
+      alignment="CENTER"
+      style="-fx-background-color: black; -fx-padding: 20; -fx-border-radius: 10; -fx-background-radius: 10; -fx-border-color: rgb(128,128,128);">
+
+    <!-- Red Light -->
+    <StackPane fx:id="redLightPane">
+        <Circle fx:id="redCircle" radius="30" style="-fx-fill: darkred;" />
+        <Label fx:id="redLabel" text="0" style="-fx-text-fill: white; -fx-font-size: 18;" />
+    </StackPane>
+
+    <!-- Yellow Light -->
+    <StackPane fx:id="yellowLightPane">
+        <Circle fx:id="yellowCircle" radius="30" style="-fx-fill: goldenrod;" />
+        <Label fx:id="yellowLabel" text="0" style="-fx-text-fill: black; -fx-font-size: 18;" />
+    </StackPane>
+
+    <!-- Green Light -->
+    <StackPane fx:id="greenLightPane">
+        <Circle fx:id="greenCircle" radius="30" style="-fx-fill: darkgreen;" />
+        <Label fx:id="greenLabel" text="0" style="-fx-text-fill: white; -fx-font-size: 18;" />
+    </StackPane>
+
+</VBox>

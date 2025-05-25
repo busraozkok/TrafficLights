@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0"
+            style="-fx-background-color: linear-gradient(to bottom right, #e0e7ff, #f8fafc);"
+            xmlns="http://javafx.com/javafx/17.0.12"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.trafficlightproject.traffic.controller.MenuController">
+    <children>
+        <AnchorPane layoutX="27.0" layoutY="17.0" prefHeight="367.0" prefWidth="545.0"
+                    style="-fx-background-color: rgba(255, 255, 255, 0.8); -fx-background-radius: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 15, 0.5, 0, 4);">
+            <children>
+
+                <!-- Başlık -->
+                <Label layoutX="160.0" layoutY="25.0" text="🚦 Traffic Light Simulation"
+                       textFill="#1e293b">
+                    <font>
+                        <Font size="22.0" />
+                    </font>
+                </Label>
+
+                <!-- Manuel ve Random Seçenekleri -->
+                <HBox layoutX="150.0" layoutY="75.0" spacing="60.0" alignment="CENTER">
+                    <children>
+                        <RadioButton fx:id="manuelRadioButton" text="Manual"
+                                     textFill="#1e293b"
+                                     style="-fx-font-size: 15px;" />
+                        <RadioButton fx:id="randomRadioButton" text="Random"
+                                     textFill="#1e293b"
+                                     style="-fx-font-size: 15px;" />
+                    </children>
+                </HBox>
+
+                <!-- Yoğunluk Giriş Alanları -->
+                <VBox layoutX="200.0" layoutY="125.0" spacing="15.0">
+                    <children>
+                        <TextField fx:id="northField" promptText="North"
+                                   style="-fx-background-radius: 8; -fx-padding: 8; -fx-border-color: #cbd5e1; -fx-border-radius: 8;" />
+                        <TextField fx:id="southField" promptText="South"
+                                   style="-fx-background-radius: 8; -fx-padding: 8; -fx-border-color: #cbd5e1; -fx-border-radius: 8;" />
+                        <TextField fx:id="eastField" promptText="East"
+                                   style="-fx-background-radius: 8; -fx-padding: 8; -fx-border-color: #cbd5e1; -fx-border-radius: 8;" />
+                        <TextField fx:id="westField" promptText="West"
+                                   style="-fx-background-radius: 8; -fx-padding: 8; -fx-border-color: #cbd5e1; -fx-border-radius: 8;" />
+                    </children>
+                </VBox>
+
+                <!-- START Butonu -->
+                <Button fx:id="startButton" layoutX="230.0" layoutY="310.0"
+                        prefWidth="100.0" prefHeight="40.0"
+                        text="START"
+                        textFill="white"
+                        onAction="#handleStart"
+                        style="-fx-background-color: linear-gradient(to right, #3b82f6, #2563eb); -fx-background-radius: 12; -fx-font-size: 15px; -fx-font-weight: bold; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 5, 0.3, 0, 2);">
+                </Button>
+
+            </children>
+        </AnchorPane>
+    </children>
+</AnchorPane>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+
+<AnchorPane prefHeight="738.0" prefWidth="790.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.trafficlightproject.traffic.controller.SimulationController">
+
+    <!-- Dikey yollar (NORTH - SOUTH) -->
+    <Group layoutX="275" layoutY="0" />
+
+    <!-- Yatay yollar (WEST - EAST) -->
+    <Group layoutX="0" layoutY="275">
+        <Rectangle fill="gray" height="175.0" layoutY="11.0" width="813.0" />
+        <Line endX="-38.5" layoutX="106.0" layoutY="100.0" startX="-100.0" stroke="WHITE" strokeWidth="12.0" />
+        <Line endX="-40.83331298828125" layoutX="847.0" layoutY="100.0" startX="-100.0" stroke="WHITE" strokeWidth="12.0" />
+        <Line endX="-20.5" layoutX="730.0" layoutY="100.0" startX="-100.0" stroke="WHITE" strokeWidth="12.0" />
+        <Line endX="-13.5" layoutX="599.0" layoutY="100.0" startX="-100.0" stroke="WHITE" strokeWidth="12.0" />
+        <Line endX="100.0" layoutX="85.0" layoutY="100.0" startX="27.5" stroke="WHITE" strokeWidth="12.0" />
+        <Line endX="100.0" layoutX="201.0" layoutY="100.0" startX="28.5" stroke="WHITE" strokeWidth="12.0" />
+
+    </Group>
+    <Rectangle fill="gray" height="742.0" layoutX="310.0" width="188.0" />
+    <Line endX="100.0" startX="-100.0" />
+    <Line endX="100.0" startX="-100.0" />
+    <Line endX="100.0" layoutX="305.0" layoutY="53.0" startX="100.0" startY="-47.83333206176758" stroke="WHITE" strokeWidth="12.0" />
+    <Line endX="100.0" startX="-100.0" />
+    <Line endX="100.0" layoutX="305.0" layoutY="162.0" startX="99.99996948242188" startY="-60" stroke="WHITE" strokeWidth="12.0" />
+    <Line endX="100.0" layoutX="305.0" layoutY="276.0" startX="99.99996948242188" startY="-60" stroke="WHITE" strokeWidth="12.0" />
+    <Line endX="100.0" layoutX="305.0" layoutY="676.0" startX="100.0" startY="60" stroke="WHITE" strokeWidth="12.0" />
+    <Line endX="100.0" endY="4.83331298828125" layoutX="305.0" layoutY="629.0" startX="100.0" startY="-60" stroke="WHITE" strokeWidth="12.0" />
+    <Line endX="100.0" layoutX="305.0" layoutY="527.0" startX="100.0" startY="-60" stroke="WHITE" strokeWidth="12.0" />
+    <Pane fx:id="vehicleLayer" prefWidth="790" prefHeight="738" />
+    <Pane fx:id="trafficLightLayer" prefWidth="790" prefHeight="738" />
+</AnchorPane>

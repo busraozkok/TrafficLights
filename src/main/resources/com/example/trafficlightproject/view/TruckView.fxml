@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+
+<AnchorPane prefHeight="150.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.trafficlightproject.traffic.view.VehicleView">
+    <children>
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff381f" height="45.0" layoutX="50.0" layoutY="50.0" stroke="BLACK" strokeType="INSIDE" width="88.0" />
+        <Rectangle arcHeight="5.0" arcWidth="5.0" height="37.0" layoutX="16.0" layoutY="54.0" stroke="BLACK" strokeType="INSIDE" width="34.0" />
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="28.0" layoutX="33.0" layoutY="58.0" stroke="BLACK" strokeType="INSIDE" width="14.0" />
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e5ff1f" height="8.0" layoutX="16.0" layoutY="54.0" stroke="BLACK" strokeType="INSIDE" width="8.0" />
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fbff1f" height="8.0" layoutX="16.0" layoutY="82.0" stroke="BLACK" strokeType="INSIDE" width="8.0" />
+        <Circle layoutX="37.0" layoutY="54.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
+        <Circle layoutX="37.0" layoutY="90.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
+    </children>
+</AnchorPane>
+

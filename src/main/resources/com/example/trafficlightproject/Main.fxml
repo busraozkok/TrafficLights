@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+
+<BorderPane prefHeight="951.0" prefWidth="1137.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.trafficlightproject.traffic.controller.MainController">
+
+    <!-- Ortadaki Simülasyon Alanı -->
+    <center>
+        <fx:include source="view/TrafficSimulationView.fxml" />
+    </center>
+
+    <!-- Alt Kısım: Kontrol Paneli -->
+    <bottom>
+
+        <fx:include source="view/TrafficSimulationView.fxml" />
+        <fx:include source="view/ControlPanel.fxml" />
+    </bottom>
+</BorderPane>
