@@ -10,8 +10,13 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.util.Duration;
-
+import javafx.scene.shape.Circle;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
 import java.util.*;
+import java.util.Random;
+import java.util.ArrayList;
+import java.util.List;
 
 public class SimulationController {
 
@@ -25,8 +30,10 @@ public class SimulationController {
     private final Intersection intersection = new Intersection(trafficCycle); // Kavşak kontrolü
 
     private Timeline simulationTimeline;
+    private Runnable onUpdateCallback;
     private boolean isRunning;
 
+    private int northDensity, southDensity, eastDensity, westDensity;
 
     public SimulationController() {
         // BU SATIR YOKSA, layer null olur:
@@ -44,9 +51,26 @@ public class SimulationController {
     @FXML
     public void initialize() {
         generateVehicles();  // Başlangıçta birkaç araç üret
-        simulationTimeline = new Timeline(new KeyFrame(Duration.seconds(1), e -> updateSimulation()));
+        setupTrafficLights();
+        setupInitialVehicles();
+
+        simulationTimeline = new Timeline(new KeyFrame(Duration.millis(16), e -> {
+            updateSimulation();
+            if (onUpdateCallback != null) {
+                onUpdateCallback.run();
+            }
+        }));
         simulationTimeline.setCycleCount(Timeline.INDEFINITE);
+        simulationTimeline.play();
     }
+    private void setupTrafficLights() {
+        // ışıkları hazırla
+    }
+
+    private void setupInitialVehicles() {
+        // araçları hazırla
+    }
+
 
     /**
      * Simülasyon döngüsünü günceller
@@ -69,6 +93,11 @@ public class SimulationController {
             isRunning = true;
             simulationTimeline.play();
             System.out.println("Simülasyon başlatıldı.");
+            System.out.println("Simulation started with densities:");
+            System.out.println("North: " + northDensity);
+            System.out.println("South: " + southDensity);
+            System.out.println("East: " + eastDensity);
+            System.out.println("West: " + westDensity);
         }
     }
 
@@ -128,30 +157,49 @@ public class SimulationController {
         return vehicleLayer;
     }
 
+//    public void setTrafficDensityManual(int north, int south, int east, int west) {
+//        Map<Direction, Integer> densities = new EnumMap<>(Direction.class);
+//        densities.put(Direction.NORTH, north);
+//        densities.put(Direction.SOUTH, south);
+//        densities.put(Direction.EAST, east);
+//        densities.put(Direction.WEST, west);
+//
+//        setTrafficDensity(densities);
+//
+//        System.out.println("Manuel trafik yoğunlukları uygulandı:");
+//        densities.forEach((dir, value) -> System.out.println(dir + " -> " + value));
+//    }
+
     public void setTrafficDensityManual(int north, int south, int east, int west) {
-        Map<Direction, Integer> densities = new EnumMap<>(Direction.class);
-        densities.put(Direction.NORTH, north);
-        densities.put(Direction.SOUTH, south);
-        densities.put(Direction.EAST, east);
-        densities.put(Direction.WEST, west);
-
-        setTrafficDensity(densities);
-
-        System.out.println("Manuel trafik yoğunlukları uygulandı:");
-        densities.forEach((dir, value) -> System.out.println(dir + " -> " + value));
+        this.northDensity = north;
+        this.southDensity = south;
+        this.eastDensity = east;
+        this.westDensity = west;
+        System.out.println("Manual densities set: N=" + north + ", S=" + south + ", E=" + east + ", W=" + west);
     }
 
-    public void setTrafficDensityRandom() {
-        Map<Direction, Integer> densities = new EnumMap<>(Direction.class);
-        for (Direction direction : Direction.values()) {
-            int randomDensity = random.nextInt(101); // 0–100
-            densities.put(direction, randomDensity);
-        }
+//    public void setTrafficDensityRandom() {
+//        Map<Direction, Integer> densities = new EnumMap<>(Direction.class);
+//        for (Direction direction : Direction.values()) {
+//            int randomDensity = random.nextInt(101); // 0–100
+//            densities.put(direction, randomDensity);
+//        }
+//
+//        setTrafficDensity(densities);
+//
+//        System.out.println("Rastgele trafik yoğunlukları uygulandı:");
+//        densities.forEach((dir, value) -> System.out.println(dir + " -> " + value));
+//    }
+public void setTrafficDensityRandom() {
+    this.northDensity = (int)(Math.random() * 10) + 1; // 1-10 arası örnek
+    this.southDensity = (int)(Math.random() * 10) + 1;
+    this.eastDensity = (int)(Math.random() * 10) + 1;
+    this.westDensity = (int)(Math.random() * 10) + 1;
+    System.out.println("Random densities set: N=" + northDensity + ", S=" + southDensity + ", E=" + eastDensity + ", W=" + westDensity);
+}
 
-        setTrafficDensity(densities);
-
-        System.out.println("Rastgele trafik yoğunlukları uygulandı:");
-        densities.forEach((dir, value) -> System.out.println(dir + " -> " + value));
+    public void setOnUpdateCallback(Runnable callback) {
+        this.onUpdateCallback = callback;
     }
 
 }

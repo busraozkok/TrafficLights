@@ -1,5 +1,6 @@
 package com.example.trafficlightproject.traffic;
 
+import com.example.trafficlightproject.traffic.controller.MenuController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -31,7 +32,8 @@ public class MainApp extends Application {
             // FXML'den Menü Görünümünü Yükle
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/trafficlightproject/view/MenuView.fxml"));
             Parent menuView = loader.load();
-
+            MenuController controller = loader.getController();
+            controller.setPrimaryStage(primaryStage); // burası önemli
             Scene menuScene = new Scene(menuView, 600, 400);
             stage.setTitle("Traffic Light Simulation - Menu");
             stage.setScene(menuScene);

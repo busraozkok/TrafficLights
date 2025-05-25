@@ -2,6 +2,7 @@ module com.example.trafficlightproject {
     requires javafx.controls;
     requires javafx.fxml;
     requires javafx.graphics;
+    requires java.desktop;
 
     opens com.example.trafficlightproject.traffic.controller to javafx.fxml;
     opens com.example.trafficlightproject.traffic to javafx.graphics;

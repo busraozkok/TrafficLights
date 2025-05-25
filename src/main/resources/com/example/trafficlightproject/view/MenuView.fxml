@@ -31,6 +31,7 @@
                                      style="-fx-font-size: 15px;" />
                         <RadioButton fx:id="randomRadioButton" text="Random"
                                      textFill="#1e293b"
+                                     onAction="#handleRandomSelection"
                                      style="-fx-font-size: 15px;" />
                     </children>
                 </HBox>
